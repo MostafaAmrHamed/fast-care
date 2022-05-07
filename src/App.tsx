@@ -1,11 +1,10 @@
 import React from "react";
+import Navbar from "./screens/Navbar/Navbar";
 
 function App() {
   return (
-    <div>
-      <h1 className="text-red-500 text-5xl text-center font-bold mt-5">
-        Fast Care
-      </h1>
+    <div className="font-poppins">
+      <Navbar />
     </div>
   );
 }
