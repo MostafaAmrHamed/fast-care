@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { HiLocationMarker } from "react-icons/hi";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 const BloodBank = () => {
   const [bloodType, setBloodType] = useState("");
   return (
@@ -32,12 +33,39 @@ const BloodBank = () => {
           <option value="O-">O-</option>
         </select>
       </div>
-      <div className="text-center text-5xl font-bold flex justify-center items-center h-[300px] md:h-[400px] leading-normal">
+      {/* <div className="text-center text-5xl font-bold flex justify-center items-center h-[300px] md:h-[400px] leading-normal">
         <h1>
           <span className="text-red-700">1</span> pint
           <br /> can save <br />
           <span className="text-red-700"> 3</span> lives
         </h1>
+      </div> */}
+      <div className="flex flex-col lg:flex-row items-center gap-10">
+        <div className="p-2 bg-text-2 mt-5 rounded-md">
+          <MapContainer
+            className="h-[300px] w-[300px] md:h-[350px] md:w-[600px] lg:w-[450px] xl:w-[650px] xl:h-[450px]"
+            center={[51.505, -0.09]}
+            zoom={13}
+            scrollWheelZoom={false}
+          >
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={[51.505, -0.09]}>
+              <Popup>
+                A pretty CSS3 popup. <br /> Easily customizable.
+              </Popup>
+            </Marker>
+          </MapContainer>
+        </div>
+        <div className="text-center text-5xl font-bold leading-normal">
+          <h1>
+            <span className="text-red-700">1</span> pint
+            <br /> can save <br />
+            <span className="text-red-700"> 3</span> lives
+          </h1>
+        </div>
       </div>
     </div>
   );
