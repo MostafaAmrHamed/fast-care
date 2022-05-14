@@ -7,9 +7,10 @@ import {
   TileLayer,
   useMapEvents,
 } from "react-leaflet";
+import List from "./components/List";
 const BloodBank = () => {
   const [bloodType, setBloodType] = useState("");
-  const [position, setPosition] = useState(null);
+  const [position, setPosition] = useState<any>(null);
   const LocationMarker = () => {
     const map = useMapEvents({
       click() {
@@ -52,18 +53,19 @@ const BloodBank = () => {
           className="bg-primary-1 text-base md:text-lg px-4 py-2 text-primary-2 flex items-center gap-2 rounded-lg"
           onClick={() => {
             console.log(bloodType);
+            console.log(position);
           }}
         >
           Search
         </button>
       </div>
-      <div className="flex flex-col lg:flex-row items-center gap-10">
-        <div className="p-2 bg-text-2 mt-5 rounded-md">
+      <div className="flex flex-col items-center lg:items-stretch lg:flex-row gap-10">
+        <div className="p-2 bg-text-2 mt-5 rounded-md h-fit">
           <MapContainer
             className="h-[300px] w-[300px] md:h-[350px] md:w-[600px] lg:w-[450px] xl:w-[650px] xl:h-[450px]"
             center={[30.04442, 31.235712]}
             zoom={13}
-            scrollWheelZoom={false}
+            scrollWheelZoom={true}
           >
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -76,12 +78,13 @@ const BloodBank = () => {
             <HiLocationMarker size={25} />
           </p>
         </div>
-        <div className="text-center text-5xl font-bold leading-normal">
-          <h1>
+        <div className="w-full">
+          <List />
+          {/* <h1 className="text-center text-5xl font-bold leading-normal">
             <span className="text-red-700">1</span> pint
             <br /> can save <br />
             <span className="text-red-700"> 3</span> lives
-          </h1>
+          </h1> */}
         </div>
       </div>
     </div>
