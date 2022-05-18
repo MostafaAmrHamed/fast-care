@@ -11,6 +11,7 @@ import List from "./components/List";
 const BloodBank = () => {
   const [bloodType, setBloodType] = useState("");
   const [position, setPosition] = useState<any>(null);
+  const [zoom, setZoom] = useState<boolean>(false);
   const LocationMarker = () => {
     const map = useMapEvents({
       click() {
@@ -54,6 +55,8 @@ const BloodBank = () => {
           onClick={() => {
             console.log(bloodType);
             console.log(position);
+            setZoom(true);
+            console.log(zoom);
           }}
         >
           Search
@@ -64,7 +67,7 @@ const BloodBank = () => {
           <MapContainer
             className="h-[300px] w-[300px] md:h-[350px] md:w-[600px] lg:w-[450px] xl:w-[650px] xl:h-[450px]"
             center={[30.04442, 31.235712]}
-            zoom={13}
+            zoom={12}
             scrollWheelZoom={true}
           >
             <TileLayer
@@ -72,6 +75,19 @@ const BloodBank = () => {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <LocationMarker />
+            {zoom && (
+              <div>
+                <Marker position={[30.54442, 31.335712]}>
+                  <Popup>1</Popup>
+                </Marker>
+                <Marker position={[30.24422, 31.435712]}>
+                  <Popup>2</Popup>
+                </Marker>
+                <Marker position={[30.34411, 31.235712]}>
+                  <Popup>3</Popup>
+                </Marker>
+              </div>
+            )}
           </MapContainer>
           <p className="flex flex-col md:flex-row text-sm items-center justify-center mt-2 bg-primary-1 text-primary-2 text-center p-2 rounded-md">
             Click on map to get your current location
