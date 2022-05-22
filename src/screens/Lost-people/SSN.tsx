@@ -19,7 +19,7 @@ const SSN = () => {
           Search
         </button>
       </div>
-      <div className="grid grid-cols-7 gap-5 text-primary-1 font-semibold text-center">
+      <div className="hidden md:grid grid-cols-7 gap-5 text-primary-1 font-semibold text-center">
         <p>Name</p>
         <p>SSN</p>
         <p>Case</p>

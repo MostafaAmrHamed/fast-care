@@ -44,7 +44,7 @@ const List = () => {
       {data.map((element, index) => {
         return (
           <div
-            className="grid grid-cols-7 items-center gap-5 text-center text-base text-text-1 bg-primary-2 py-2 rounded-md shadow-md cursor-default"
+            className="md:grid md:grid-cols-7 md:items-center md:gap-5 text-center text-base text-text-1 bg-primary-2 py-2 rounded-md shadow-md cursor-default"
             style={{
               backgroundColor: index % 2 === 0 ? "" : "#EC3642",
               color: index % 2 === 0 ? "" : "#F9F9F9",
