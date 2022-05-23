@@ -14,6 +14,8 @@ const Description = () => {
       searchGender(search.gender, setLostData);
     } else if (search.date && search.gender) {
       searchDateAndGender(search.gender, search.date, setLostData);
+    } else {
+      lostPeopleFetch();
     }
   };
   const lostPeopleFetch = async () => {
