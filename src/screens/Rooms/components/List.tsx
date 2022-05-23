@@ -1,7 +1,11 @@
 import React from "react";
-import { Blood } from "../../../types";
+import { RoomsLocation } from "../../../types";
 
-const List: React.FC<Blood> = ({ hospital_name, hospital_phone, id }) => {
+const List: React.FC<RoomsLocation> = ({
+  hospital_name,
+  hospital_phone,
+  id,
+}) => {
   return (
     <div
       className="md:grid md:grid-cols-2 gap-2 text-center text-base text-text-1 bg-primary-2 p-3 rounded-md shadow-md cursor-default"

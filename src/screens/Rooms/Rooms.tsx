@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import { HiLocationMarker } from "react-icons/hi";
 import {
   MapContainer,
@@ -8,16 +8,16 @@ import {
   TileLayer,
   useMapEvents,
 } from "react-leaflet";
-import { BloodType } from "../../types";
+import { RoomsData } from "../../types";
 import List from "./components/List";
-const BloodBank = () => {
-  const [data, setData] = useState<BloodType[]>([]);
-  const [bloodType, setBloodType] = useState("");
+const Rooms = () => {
+  const [data, setData] = useState<RoomsData[]>();
+  const [room, setRoom] = useState("");
   const [position, setPosition] = useState<any>(null);
-  const BloodTypeFetch = async () => {
+  const RoomsFetch = async () => {
     axios
       .get(
-        `https://glacial-everglades-74360.herokuapp.com/blood/?format=json&type=${bloodType}`
+        `https://glacial-everglades-74360.herokuapp.com/room/?format=json&type=${room}`
       )
       .then((response) => {
         setData(response.data);
@@ -48,26 +48,26 @@ const BloodBank = () => {
     <div className="container mx-auto mt-5">
       <div className="flex flex-row gap-5 mx-2 md:mx-0 w-fit">
         <select
-          value={bloodType}
+          value={room}
           onChange={(e) => {
-            setBloodType(e.target.value);
+            setRoom(e.target.value);
           }}
           className="border-2 border-primary-1 px-4 text-lg rounded-md focus:outline-none"
         >
-          <option value="">Bood Type</option>
-          <option value="A%2B">A+</option>
-          <option value="A%2D">A-</option>
-          <option value="B%2B">B+</option>
-          <option value="B%2D">B-</option>
-          <option value="AB%2B">AB+</option>
-          <option value="AB%2D">AB-</option>
-          <option value="O%2B">O+</option>
-          <option value="O%2D">O-</option>
+          <option value="">Rooms</option>
+          <option value="ER">ER</option>
+          <option value="CVICU">CVICU</option>
+          <option value="MICU">MICU</option>
+          <option value="NICU">NICU</option>
+          <option value="PICU">PICU</option>
+          <option value="SICU">SICU</option>
+          <option value="TICU">TICU</option>
+          <option value="Covid 19">Covid 19</option>
         </select>
         <button
           className="bg-primary-1 text-base md:text-lg px-4 py-2 text-primary-2 flex items-center gap-2 rounded-lg"
           onClick={() => {
-            BloodTypeFetch();
+            RoomsFetch();
           }}
         >
           Search
@@ -107,7 +107,7 @@ const BloodBank = () => {
           </p>
         </div>
         <div className="w-full">
-          {data?.length !== 0 ? (
+          {data && (
             <div className="space-y-4">
               <div>
                 <div className="hidden md:grid md:grid-cols-12 gap-2 text-center text-xl text-text-1 font-bold mb-5">
@@ -126,14 +126,6 @@ const BloodBank = () => {
                 );
               })}
             </div>
-          ) : (
-            <div>
-              <h1 className="text-center text-5xl font-bold leading-normal">
-                <span className="text-red-700">1</span> pint
-                <br /> can save <br />
-                <span className="text-red-700"> 3</span> lives
-              </h1>
-            </div>
           )}
         </div>
       </div>
@@ -141,4 +133,4 @@ const BloodBank = () => {
   );
 };
 
-export default BloodBank;
+export default Rooms;
