@@ -45,3 +45,17 @@ export type Blood = {
   hospital_phone: string;
   id: number;
 };
+export type RoomsData = {
+  type: string;
+  count: number;
+  hospital_name: string;
+  hospital_longtitude: string;
+  hospital_latitude: string;
+  hospital_phone: string;
+  id: number;
+};
+export type RoomsLocation = {
+  hospital_name: string;
+  hospital_phone: string;
+  id: number;
+};
