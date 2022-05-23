@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
 const Navbar = () => {
