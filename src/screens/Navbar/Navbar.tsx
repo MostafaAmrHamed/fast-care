@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
+import Logo from "../../images/fast_care2.png";
 const Navbar = () => {
   const location = useLocation();
   const [navToggle, setNavToggle] = useState(false);
   return (
     <div className="container mx-auto mt-5">
       {/* Desktop Navbar */}
-      <div className="md:flex justify-between mx-5 xl:mx-0 hidden">
+      <div className="md:flex items-center justify-between mx-5 xl:mx-0 hidden">
         <div>
-          <h1 className="text-2xl text-primary-1 font-semibold">Fast Care</h1>
+          <img src={Logo} alt="logo" className="w-[200px] h-[50px]" />
         </div>
         <div>
           <ul className="flex justify-between gap-5 text-lg text-text-2">
@@ -46,8 +47,10 @@ const Navbar = () => {
       </div>
       {/* Mobile Navbar */}
       <div className="mx-5 md:hidden">
-        <nav className="flex justify-between">
-          <h1 className="text-2xl text-primary-1 font-semibold">Fast Care</h1>
+        <nav className="flex justify-between items-center mb-1">
+          <div>
+            <img src={Logo} alt="logo" className="w-[150px] h-[40px]" />
+          </div>
           <FiMenu
             size={30}
             className="cursor-pointer"
