@@ -21,8 +21,8 @@ const ListDescription: React.FC<LostPeople> = ({
       <div
         className="bg-primary-2 text-text-1 py-4 rounded-md shadow-md"
         style={{
-          backgroundColor: id % 2 === 0 ? "#EC3642" : "",
-          color: id % 2 === 0 ? "#F9F9F9" : "",
+          backgroundColor: id % 2 === 0 ? "" : "#EC3642",
+          color: id % 2 === 0 ? "" : "#F9F9F9",
         }}
       >
         <div className="md:grid md:grid-cols-6 md:items-center md:gap-5 text-center text-base  cursor-default">

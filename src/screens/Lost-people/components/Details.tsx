@@ -14,8 +14,8 @@ const Details: React.FC<MoreDeatils> = ({
     <div
       className="bg-primary-2 text-text-1 rounded-md shadow-md mt-2 py-2 px-4"
       style={{
-        backgroundColor: index % 2 === 0 ? "#EC3642" : "",
-        color: index % 2 === 0 ? "#F9F9F9" : "",
+        backgroundColor: index % 2 === 0 ? "" : "#EC3642",
+        color: index % 2 === 0 ? "" : "#F9F9F9",
       }}
     >
       <p
@@ -24,7 +24,7 @@ const Details: React.FC<MoreDeatils> = ({
           setToggleDetails(!toggleDetails);
         }}
         style={{
-          color: index % 2 === 0 ? "#F9F9F9" : "",
+          color: index % 2 === 0 ? "" : "#F9F9F9",
         }}
       >
         More details...
