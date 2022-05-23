@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import Description from "./Description";
 import SSN from "./SSN";
 
 const LostPeople = () => {
-  const [ssn, setSnn] = useState(true);
+  const [ssn, setSsn] = useState(true);
   return (
     <div className="container mx-auto mt-5">
       <div className="flex justify-center w-full mb-5">
@@ -11,7 +12,7 @@ const LostPeople = () => {
             className="hover:text-primary-1"
             style={{ color: ssn ? "#EC3642" : "" }}
             onClick={() => {
-              setSnn(true);
+              setSsn(true);
             }}
           >
             SSN / Name
@@ -20,14 +21,14 @@ const LostPeople = () => {
             className="hover:text-primary-1"
             style={{ color: ssn ? "" : "#EC3642" }}
             onClick={() => {
-              setSnn(false);
+              setSsn(false);
             }}
           >
             Description
           </p>
         </div>
       </div>
-      {ssn ? <SSN /> : ""}
+      {ssn ? <SSN /> : <Description />}
     </div>
   );
 };
