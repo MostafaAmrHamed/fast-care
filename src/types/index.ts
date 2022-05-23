@@ -20,3 +20,14 @@ export type LostPeople = {
   hospital_phone: string;
   id: number;
 };
+export type LostSSN = {
+  name: string;
+  national_id: string;
+  date_of_lost: string;
+  gender: string;
+  status: string;
+  reason: string;
+  hospital_name: string;
+  hospital_phone: string;
+  id: number;
+};
