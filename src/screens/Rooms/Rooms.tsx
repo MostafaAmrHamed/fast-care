@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { HiLocationMarker } from "react-icons/hi";
 import {
+  CircleMarker,
   MapContainer,
   Marker,
   Popup,
@@ -14,6 +15,7 @@ const Rooms = () => {
   const [data, setData] = useState<RoomsData[]>();
   const [room, setRoom] = useState("");
   const [position, setPosition] = useState<any>(null);
+  const redOptions = { color: "red" };
   const RoomsFetch = async () => {
     axios
       .get(
@@ -38,9 +40,16 @@ const Rooms = () => {
     });
 
     return position === null ? null : (
-      <Marker position={position}>
-        <Popup>You are here</Popup>
-      </Marker>
+      <>
+        <Marker position={position}>
+          <Popup>You are here</Popup>
+        </Marker>
+        <CircleMarker
+          center={position}
+          pathOptions={redOptions}
+          radius={20}
+        ></CircleMarker>
+      </>
     );
   };
 
