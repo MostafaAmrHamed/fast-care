@@ -9,6 +9,10 @@ const SSN = () => {
   const [search, setSearch] = useState({ ssn: "", name: "" });
 
   const filterSearch = () => {
+    /* string empty = false
+      string nonEmpty = true
+    */
+    //ssn true && name !false
     if (search.ssn && !search.name) {
       searchSSN(search.ssn, setData);
     } else if (!search.ssn && search.name) {
